@@ -14,6 +14,7 @@ const app = express();
 app.use(cookieSession({
   name:"session",
   keys: ["milPool"]
+
 }))
 
 app.use((req, res, next) => {
@@ -21,8 +22,6 @@ app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Headers','*')
   next()
 })
-
-app.get('/12345', (req, res) => {   res.send('Hello World!') })
 
 app.use(logger('dev'));
 app.use(express.json());

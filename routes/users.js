@@ -36,12 +36,13 @@ module.exports = ({
 
     router.get('/:id', (req, res) => {
         let id = req.params.id
-
+        console.log(id, "req.params")
+        console.log(req.session.id, "req.session")
         getUserByEmail(req.session.id).then(user => {
             
             if(!user){
-                console.log("no session found")
-                res.send("no session found")
+                console.log(`no session found (consoleLog in users.js)`)
+                res.send("no session found (res.send in users.js)")
             } else {
                 console.log("session found! (router.get)")
            //     res.send("session found!")
