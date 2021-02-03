@@ -11,10 +11,13 @@ const statsRouter = require('./routes/stats')
 const { nextTick } = require('process');
 const app = express();
 
+app.set('trust proxy', 1)
+
 app.use(cookieSession({
   name: "session",
   keys: ["milPool"]
 }))
+
 
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*')

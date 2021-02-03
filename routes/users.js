@@ -34,7 +34,7 @@ module.exports = ({
 
     router.get('/:id', (req, res) => {
         let id = req.params.id
-        console.log(id, "req.params")
+        console.log(id, "req.params") // NOT NICE -> shit piss fuck cunt cocksucker motherfucker
         console.log(req.session.id, "req.session")
         getUserByEmail(req.session.id).then(user => {
 
