@@ -34,7 +34,7 @@ module.exports = ({
 
     // get user to check if loged in.
 
-    router.get('/:id', (req, res) => {
+    router.get('/8', (req, res) => {
         let id = req.params.id
         console.log(id, "req.params")
         console.log(req.session.id, "req.session")
