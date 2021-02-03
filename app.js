@@ -16,11 +16,11 @@ app.use(cookieSession({
   keys: ["milPool"]
 }))
 
-// app.use((req, res, next) => {
-//   res.setHeader('Access-Control-Allow-Origin','*')
-//   res.setHeader('Access-Control-Allow-Headers','*')
-//   next()
-// })
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin','*')
+  res.setHeader('Access-Control-Allow-Headers','*')
+  next()
+})
 
 app.get('/12345', (req, res) => {   res.send('Hello World!') })
 
