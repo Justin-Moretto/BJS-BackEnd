@@ -12,14 +12,13 @@ const { nextTick } = require('process');
 const app = express();
 
 app.use(cookieSession({
-  name:"session",
+  name: "session",
   keys: ["milPool"]
-
 }))
 
 app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin','*')
-  res.setHeader('Access-Control-Allow-Headers','*')
+  res.setHeader('Access-Control-Allow-Origin', '*')
+  res.setHeader('Access-Control-Allow-Headers', '*')
   next()
 })
 

@@ -18,11 +18,11 @@ module.exports = ({
 
     /* GET users listing. */
     router.get('/', (req, res) => {
-        console.log(req.session)
-        if (!req.session.id) {
-            res.status(401).send("no good")
-            return
-        }
+        console.log(req.session, "req.session in users.js line21")
+        // if (!req.session.id) {
+        //     res.status(401).send("no good")
+        //     return
+        // }
         getUsers()
             .then((users) => res.json(users))
             .catch((err) => res.json({
