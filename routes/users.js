@@ -5,7 +5,6 @@ const { body, validationResult, check } = require('express-validator');
 const cookieSession = require('cookie-session')
 
 
-
 module.exports = ({
     getUsers,
     getUserByEmail,
@@ -19,6 +18,7 @@ module.exports = ({
     /* GET users listing. */
     router.get('/', (req, res) => {
         console.log(req.session, "req.session in users.js line21")
+        console.log(req.protocol, "req.protocol in homepage")
         // if (!req.session.id) {
         //     res.status(401).send("no good")
         //     return
@@ -28,8 +28,8 @@ module.exports = ({
             .catch((err) => res.json({
                 error: err.message
             }));
-    });
 
+    });
     // get user to check if loged in.
 
     router.get('/:id', (req, res) => {

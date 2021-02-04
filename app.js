@@ -11,13 +11,16 @@ const statsRouter = require('./routes/stats')
 const { nextTick } = require('process');
 const app = express();
 
-app.set('trust proxy', 1)
+app.enable('trust proxy')
 
 app.use(cookieSession({
+  secret: 'secret',
   name: "session",
-  keys: ["milPool"],
-  secret: '<secret>',
-  secureProxy: true
+  key: "milPool",
+  cookie: {
+    secure: true,
+    maxAge: 5184000000
+  }
 }))
 
 
