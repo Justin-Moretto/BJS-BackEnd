@@ -74,14 +74,18 @@ module.exports = ({
                 res.send("USER DOES NOT EXIST")
             } else if (req.body.password === "test") {
                 req.session.id = req.body.email
-                res.send(true)
+                res.send(user)
             } else {
                 bcrypt.compare(req.body.password, user.password, function (err, result) {
                     if (err) {
                         res.send("password or email incorrect")
                     } else {
-                        req.session.id = req.body.email
-                        res.send(result)
+                        if (result) {
+                            res.send(user)
+                        } else {
+                            req.session.id = req.body.email
+                            res.send(result)
+                        }
                     }
                 });
             }
